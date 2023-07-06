@@ -19,13 +19,13 @@ This project is a turn-based combat game where you control different characters 
 Clone the GitHub repository:
 
 ```shell
-git clone https://github.com/Washer34/THP-RPG
+git clone https://github.com/Washer34/THP-Survive-The-Arena
 ```
 
 Navigate to the project directory:
 
 ```shell
-cd THP-RPG
+cd THP-Survive-The-Arena
 ```
 
 Open the index.html file in your browser to start the game.
