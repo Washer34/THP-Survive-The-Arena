@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Kings&family=MedievalSharp&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: calc(1em + 0.5rem);
+}
+
+html,
+body {
+  height: 100%;
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  display: block;
+  outline: none;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+input[type='submit']:hover,
+button:hover {
+  cursor: pointer;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea {
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'MedievalSharp', cursive;
+  background-color: hsl(34, 78%, 91%);
+  color: white;
+}
+
+#text {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#btns {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  position: relative;
+  padding: .4em .8em;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  background-color: hsl(34, 78%, 80%);
+  margin: .1em;
+  min-width: 12rem;
+}
+
+.hover-text {
+  position: absolute;
+  font-family: serif;
+  top: 105%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: .8em;
+  color: white;
+  background-color: #984447;
+  border-radius: 2rem;
+  opacity: 0;
+  cursor: default;
+  padding: .8em;
+  transition: all .3s ease;
+}
+
+button:hover .hover-text {
+  opacity: .5;
+}
+
+.deactivated {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.characters-status {
+  padding: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 4rem;
+}
+
+.characters-status div {
+  margin: 1rem;
+  font-family: 'Kings', cursive;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.dead {
+  color: hsl(4, 79%, 63%);
+  opacity: .5;
+}
+
+.name {
+  font-size: 1.3em;
+  color: gold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-text-fill-color: gold;
+}
+
+.characters-status .class {
+  /* color: hsl(34, 71%, 40%); */
+  color: rgb(251, 255, 8);
+}
+
+.dead img {
+  filter: sepia() saturate(10000%) hue-rotate(4deg) brightness(50%);
+}
+
+.character img {
+  transform: scale(100%) rotate(0);
+}
+
+.turn {
+  transform: scale(110%);
+  animation: tilt .3s ease 5 alternate forwards, tilt 1s 1.5s alternate-reverse infinite forwards;
+}
+
+img.hurt {
+  animation: hurtAnim .2s ease-out;
+}
+
+.hp {
+  transition: all ease .5s;
+}
+
+.hp.hurt span {
+  animation: blinkNegative .3s ease 6 alternate;
+}
+
+.positive span {
+  animation: blinkPositive .3s ease 6 alternate;
+}
+
+.negative span {
+  animation: blinkNegative .3s ease 6 alternate;
+}
+
+@keyframes tilt {
+  0% {
+    transform: scale(110%) rotate(10deg);
+  }
+
+  100% {
+    transform: scale(120%) rotate(-10deg);
+  }
+}
+
+@keyframes hurtAnim {
+  0% {
+    transform: translateX(0);
+    filter: saturate(100%) hue-rotate(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(10%);
+    filter: sepia() saturate(10000%) hue-rotate(4deg);
+    opacity: .5;
+  }
+
+  100% {
+    transform: translateX(0);
+    filter: saturate(100%) hue-rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blinkNegative {
+  0% {
+    color: black;
+  }
+
+  100% {
+    color: red;
+  }
+}
+
+@keyframes blinkPositive {
+  0% {
+    color: black;
+  }
+
+  100% {
+    color: hsl(214, 37%, 44%);
+  }
+}
